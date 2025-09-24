@@ -93,13 +93,9 @@ docker-compose down -v
 ### Exemplo Básico
 
 1. **Crie um novo workflow** no n8n
-2. **Adicione o Random Node** da paleta
+2. **Adicione o Random Node** da paleta (ícone roxo)
 3. **Configure os parâmetros** Min/Max para números
 4. **Execute** e veja o resultado!
-
-## 📄 Licença
-
-Este projeto está licenciado sob a **MIT License** - veja [LICENSE.md](LICENSE.md) para detalhes.
 
 
 
