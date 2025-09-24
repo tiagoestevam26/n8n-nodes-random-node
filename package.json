@@ -1,9 +1,13 @@
 {
   "name": "n8n-nodes-random-node",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Custom node for generating random numbers for n8n",
+  "main": "dist/nodes/Random/Random.node.js",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n",
+    "n8n-community-node-package",
+    "random",
+    "generator"
   ],
   "license": "MIT",
   "homepage": "",
@@ -18,40 +22,31 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "main": "index.js",
   "scripts": {
-    "build": "npx rimraf dist && tsc && gulp build:icons",
+    "build": "tsc",
+    "build:check": "tsc --noEmit",
     "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials package.json",
-    "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f n8n",
+    "setup": "node scripts/setup.js",
+    "start": "npm run docker:build && npm run docker:up",
+    "stop": "npm run docker:down",
+    "restart": "npm run docker:down && npm run start"
   },
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
-    ],
     "nodes": [
-      "dist/nodes/Random/Random.node.js",
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/Random/Random.node.js"
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "~8.32.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-n8n-nodes-base": "^1.16.3",
-    "gulp": "^5.0.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
-  },
-  "peerDependencies": {
-    "n8n-workflow": "*"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "n8n-workflow": "latest"
   }
 }
