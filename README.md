@@ -1,8 +1,5 @@
 # Desafio OnFly✈️ - Custom node n8n.
 
-Conector personalizado para [n8n](https://n8n.io), desenvolvido como parte do processo seletivo para OnFly.   Este nó consome a [API Random.org](https://www.random.org/integers/) para gerar números aleatórios.
-
-
 ## 📋 O que é este projeto?
 
 Este é um **custom node para [n8n](https://n8n.io)** que desenvolvido como parte do processo seletivo para OnFly. Este nó consome a [API Random.org](https://www.random.org/integers/) para gerar números aleatórios com intervalos personalizáveis.
