@@ -52,7 +52,7 @@ npm run build
 
 # Suba os containers (n8n + PostgreSQL)
 docker-compose up -d
-
+``` 
 #### 4. Acesse o n8n
 
 1. Abra: `http://localhost:5678`
@@ -90,12 +90,14 @@ docker-compose down -v
 
 ## 🔧 Como Usar o Node
 
-### Exemplo Básico
+### Configuração do Node
 
-1. **Crie um novo workflow** no n8n
-2. **Adicione o Random Node** da paleta (ícone roxo)
-3. **Configure os parâmetros** Min/Max para números
-4. **Execute** e veja o resultado!
+1. **Arraste o Random Node** para seu workflow
+2. **Configure os parâmetros**:
+   - **Min**: Valor mínimo (ex: 1)
+   - **Max**: Valor máximo (ex: 100) 
+3. **Execute** e receba o número aleatório!
+
 
 
 
