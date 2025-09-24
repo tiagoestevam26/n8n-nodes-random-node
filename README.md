@@ -56,8 +56,10 @@ docker-compose up -d
 #### 4. Acesse o n8n
 
 1. Abra: `http://localhost:5678`
-2. Login com as credenciais do `.env`
-3. Procure por "Random" na paleta de nodes! 🎉
+2. Faça login e crie um novo workflow.
+3. Pesquise por Random e adicione no seu workflow.
+4. Configure os parâmetros: Min: Valor mínimo (ex: 1) / Max: Valor máximo (ex: 100)
+5. Execute e receba o número aleatório!
 
 ## 🛠️ Desenvolvimento
 
@@ -87,19 +89,6 @@ docker-compose down
 # 🗑️ Reset completo (⚠️ apaga dados!)
 docker-compose down -v
 ```
-
-## 🔧 Como Usar o Node
-
-### Configuração do Node
-
-1. **Arraste o Random Node** para seu workflow
-2. **Configure os parâmetros**:
-   - **Min**: Valor mínimo (ex: 1)
-   - **Max**: Valor máximo (ex: 100) 
-3. **Execute** e receba o número aleatório!
-
-
-
 
 <div align="center">
 
