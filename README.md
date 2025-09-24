@@ -1,48 +1,115 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# Desafio OnFly✈️ - Custom node n8n.
 
-# n8n-nodes-starter
+Conector personalizado para [n8n](https://n8n.io), desenvolvido como parte do processo seletivo para OnFly.   Este nó consome a [API Random.org](https://www.random.org/integers/) para gerar números aleatórios.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+## 📋 O que é este projeto?
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+Este é um **custom node para [n8n](https://n8n.io)** que desenvolvido como parte do processo seletivo para OnFly. Este nó consome a [API Random.org](https://www.random.org/integers/) para gerar números aleatórios com intervalos personalizáveis.
 
-## Prerequisites
+## 🚀 Como Executar
 
-You need the following installed on your development machine:
+### Pré-requisitos
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+- [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/)
+- [Node.js 18+](https://nodejs.org/) para desenvolvimento
+- [Git](https://git-scm.com/)
 
-## Using this starter
+### Passo a Passo
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+#### 1. Clone e Configure
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+```bash
+# Clone este repositório
+git clone https://github.com/tiagoestevam26/n8n-nodes-random-node.git
+cd n8n-nodes-random
 
-## More information
+# Configure as variáveis de ambiente
+cp .env.example .env
+```
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+#### 2. Edite o arquivo .env
 
-## License
+Abra `.env` e **altere todas as senhas**:
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+```env
+# 🔒 IMPORTANTE: Altere estas senhas!
+POSTGRES_PASSWORD=sua_senha_super_segura_aqui
+N8N_ENCRYPTION_KEY=sua_chave_criptografia_longa_minimo_32_caracteres
+N8N_BASIC_AUTH_PASSWORD=sua_senha_admin_aqui
+
+# Configurações básicas (pode manter)
+POSTGRES_USER=n8n
+POSTGRES_DB=n8n
+N8N_BASIC_AUTH_USER=admin
+N8N_HOST=localhost
+N8N_PORT=5678
+```
+
+#### 3. Build e Execute
+
+```bash
+# Instale dependências e compile o custom node
+npm install
+npm run build
+
+# Suba os containers (n8n + PostgreSQL)
+docker-compose up -d
+
+#### 4. Acesse o n8n
+
+1. Abra: `http://localhost:5678`
+2. Login com as credenciais do `.env`
+3. Procure por "Random" na paleta de nodes! 🎉
+
+## 🛠️ Desenvolvimento
+
+### Fluxo de Desenvolvimento
+
+```bash
+# 1. Faça suas alterações no código
+# 2. Recompile
+npm run build
+
+# 3. Reinicie apenas o n8n (mais rápido)
+docker-compose restart n8n
+
+# 4. Ou rebuild completo se necessário
+docker-compose up -d --build n8n
+```
+
+### Comandos Úteis
+
+```bash
+# 📋 Ver todos os logs
+docker-compose logs -f
+
+# 🔄 Parar tudo
+docker-compose down
+
+# 🗑️ Reset completo (⚠️ apaga dados!)
+docker-compose down -v
+```
+
+## 🔧 Como Usar o Node
+
+### Exemplo Básico
+
+1. **Crie um novo workflow** no n8n
+2. **Adicione o Random Node** da paleta
+3. **Configure os parâmetros** Min/Max para números
+4. **Execute** e veja o resultado!
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License** - veja [LICENSE.md](LICENSE.md) para detalhes.
+
+
+
+<div align="center">
+
+**Desenvolvido com ❤️ para o processo seletivo da OnFly!**
+
+
+</div>
+
