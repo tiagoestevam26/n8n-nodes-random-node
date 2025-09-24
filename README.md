@@ -105,7 +105,8 @@ Este projeto está licenciado sob a **MIT License** - veja [LICENSE.md](LICENSE.
 
 <div align="center">
 
-**Desenvolvido com ❤️ para o processo seletivo da OnFly!**
+
+**Desenvolvido com ❤️ para o processo seletivo da OnFly, obrigado pela oportunidade!**
 
 
 </div>
