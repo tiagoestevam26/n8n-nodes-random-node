@@ -1,22 +1,22 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-random-node",
   "version": "0.1.0",
-  "description": "",
+  "description": "Custom node for generating random numbers for n8n",
   "keywords": [
     "n8n-community-node-package"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Tiago",
+    "email": "tiago@onfly.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/tiagoestevam26/n8n-nodes-random-node.git"
   },
   "engines": {
-    "node": ">=20.15"
+    "node": ">=18.0.0"
   },
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,8 @@
     "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
@@ -37,6 +38,7 @@
       "dist/credentials/HttpBinApi.credentials.js"
     ],
     "nodes": [
+      "dist/nodes/Random/Random.node.js",
       "dist/nodes/ExampleNode/ExampleNode.node.js",
       "dist/nodes/HttpBin/HttpBin.node.js"
     ]
